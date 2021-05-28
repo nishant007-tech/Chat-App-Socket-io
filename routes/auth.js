@@ -71,7 +71,9 @@ router.post('/login', async (req, res) => {
     }
     const token = jwt.sign({ id: user._id }, "NishantRana");
 
-    res.cookie("jwt", token, { expires: new Date(Date.now() + 47336400000), httpOnly: true/*secure:true (for https)*/ })
+    res.cookie("jwt", token, {
+        expires: new Date(Date.now() + 47336400000), httpOnly: true, secure: true
+    })
     // httpOnly flag to prevent attackers from accessing the cookie from the client-side.
     //2000000 => 33 minutes 86400000 => 1day 47336400000=> 18months
     res.json({ token: token, user: user, message: " Login Successfully!" });
