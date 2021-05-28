@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, memo } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { SERVER, SERVER_URL } from './config';
+import { SERVER } from './config';
 import UsersList from './usersList'
 import axios from 'axios'
 import ShowMessages from './showMessages';
@@ -61,11 +61,11 @@ function ChatBox({ match }) {
     useEffect(() => {
         const getData = async () => {
             if (friendId) {
-                const returnedUser = await axios.get(`${SERVER_URL}/userinfo/${friendId}`);
+                const returnedUser = await axios.get(`/userinfo/${friendId}`);
                 if (returnedUser) {
                     setFoundUser(returnedUser.data);
                 }
-                const foundMsg = await axios.get(`${SERVER_URL}/privateconvo?userid=${userId}&friendid=${friendId}`);
+                const foundMsg = await axios.get(`/privateconvo?userid=${userId}&friendid=${friendId}`);
                 if (foundMsg.data.length > 0) {
                     setFoundMessages(foundMsg.data);
                 }
@@ -102,7 +102,7 @@ function ChatBox({ match }) {
                 }
                 setloader(true);
                 setWarning("Reload If Content Like Pics/Videos Did'nt Load Properly!!")
-                const res = await axios.post(`${SERVER_URL}/messages`, message);
+                const res = await axios.post(`/messages`, message);
                 setFoundMessages(existingMessages => [
                     ...existingMessages,
                     res.data
@@ -131,7 +131,7 @@ function ChatBox({ match }) {
                 formData.append('type', '');
                 setloader(true);
                 setWarning("Reload If Content Like Pics/Videos Did'nt Load Properly!!")
-                const res = await axios.post(`${SERVER_URL}/messages`, formData);
+                const res = await axios.post(`/messages`, formData);
                 setFoundMessages(existingMessages => [
                     ...existingMessages,
                     res.data
