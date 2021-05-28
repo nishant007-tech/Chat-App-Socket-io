@@ -10,14 +10,14 @@ import {
 
 //async() is thunk function for delay
 export const registerUser = (dataToSubmit) => async (dispatch) => {
-    let responseData = await axios.post(`/register`, dataToSubmit)
+    let responseData = await axios.post('/register', dataToSubmit)
     return dispatch({
         type: REGISTER_USER,
         payload: responseData
     })
 }
 export const loginUser = (dataToSubmit) => async (dispatch) => {
-    const responseData = await axios.post(`/login`, dataToSubmit, {
+    const responseData = await axios.post('/login', dataToSubmit, {
         withCredentials: true,
     });
     return dispatch({
@@ -26,7 +26,7 @@ export const loginUser = (dataToSubmit) => async (dispatch) => {
     })
 }
 export const logoutUser = () => async (dispatch) => {
-    const responseData = await axios.get(`/logout`, {
+    const responseData = await axios.get('/logout', {
         withCredentials: true,
     })
     return dispatch({
@@ -35,7 +35,7 @@ export const logoutUser = () => async (dispatch) => {
     })
 }
 export const authUser = () => async (dispatch) => {
-    let responseData = await axios.get(`/authuser`, {
+    let responseData = await axios.get('/authuser', {
         withCredentials: true,
     })
     return dispatch({
@@ -44,7 +44,7 @@ export const authUser = () => async (dispatch) => {
     })
 }
 export const getAllUsers = () => async (dispatch) => {
-    let responseData = await axios.get(`/getallusers`, {
+    let responseData = await axios.get('/getallusers', {
         withCredentials: true,
     })
     return dispatch({
@@ -53,7 +53,7 @@ export const getAllUsers = () => async (dispatch) => {
     })
 }
 export const getAllMessages = () => async (dispatch) => {
-    let responseData = await axios.get(`/getallmessages`, {
+    let responseData = await axios.get('/getallmessages', {
         withCredentials: true,
     })
     return dispatch({

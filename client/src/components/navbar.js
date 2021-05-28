@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from './actions/user_actions';
 import io from 'socket.io-client';
-import { SERVER } from './config';
-const socket = io(SERVER);
+// import { SERVER } from './config';
+const socket = io();
 
 function Navbar() {
     const dispatch = useDispatch();

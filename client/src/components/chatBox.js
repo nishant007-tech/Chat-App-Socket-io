@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, memo } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { SERVER } from './config';
+// import { SERVER } from './config';
 import UsersList from './usersList'
 import axios from 'axios'
 import ShowMessages from './showMessages';
@@ -11,7 +11,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { setMessageIsRead } from './actions/chat_actions';
 
 
-let socket = io(SERVER);
+let socket = io();
 function ChatBox({ match }) {
     const [state, setstate] = useState("");
     const dispatch = useDispatch();
