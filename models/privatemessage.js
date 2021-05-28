@@ -14,4 +14,4 @@ const privateMessageSchema = new Schema(
     { timestamps: true }
 );
 
-module.exports = mongoose.model('PrivateMessage', privateMessageSchema);
+module.exports = mongoose.model('PrivateMessages', privateMessageSchema);
