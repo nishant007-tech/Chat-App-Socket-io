@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use('/api', authRoutes);
 
-mongoose.connect('mongodb://localhost/nishant', { useFindAndModify: false, useNewUrlParser: true, useUnifiedTopology: true }, () => {
+mongoose.connect('mongodb+srv://nishant007-tech:nishanti69@cluster0.jmjrn.mongodb.net/nishant?retryWrites=true&w=majority', { useFindAndModify: false, useNewUrlParser: true, useUnifiedTopology: true }, () => {
     console.log('We Are Connected to DB');
 });
 let users = [];
